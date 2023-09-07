@@ -80,8 +80,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Sign Up Form
 - Form Validation
 - useRef Hook
-- Firebase Setup
-- Deploying our App to Production
 
 
 # Features
