@@ -82,6 +82,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - useRef Hook
 - Firebase setup
 - Deploying our App to production
+- Create Sign Up User Account
 
 
 # Features
