@@ -85,7 +85,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Create Sign Up User Account
 - Implement Sign In user API
 - Created Redux Store with user slice
-- Signed In
+- Signed In with user Credentials
 
 
 # Features

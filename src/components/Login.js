@@ -4,16 +4,21 @@ import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInform, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -25,7 +30,7 @@ const Login = () => {
     if (message) return;
 
     if (!isSignInform) {
-      // Sign In Logic
+      // Sign Up Logic
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
@@ -33,8 +38,27 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name?.current?.value,
+            photoURL:
+              "https://instagram.fktm7-1.fna.fbcdn.net/v/t51.2885-19/289711357_598641678145191_1903724461291630874_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fktm7-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=6G_X4DuWSWEAX8ZRGcN&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfDg0SY7NyZLtEy6DRac33DVmSSXFJZqZyuzfSXV6a5FeA&oe=650039A9&_nc_sid=8b3546",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
           console.log(user);
-          navigate("/browse")
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -50,8 +74,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse")
-
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -82,6 +105,7 @@ const Login = () => {
         </h1>
         {!isSignInform && (
           <input
+            ref={name}
             type="Name"
             placeholder="Full Name"
             className="p-4 my-3 w-full bg-gray-700"
