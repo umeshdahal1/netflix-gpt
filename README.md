@@ -86,6 +86,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Implement Sign In user API
 - Created Redux Store with user slice
 - Signed In with user Credentials
+- Implemented Sign Out Features
+- Update Profile
+- Bugfix: Sign up user displayName and Profile picture update
+- BugFix: If the user is not logged in Redirect/ Browse to Login page and vice-versa. 
 
 
 # Features
