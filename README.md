@@ -92,6 +92,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - BugFix: If the user is not logged in Redirect/ Browse to Login page and vice-versa. 
 - Unsubscribed to the onAuthStateChanged callback
 - Add hardcoded values to the constants file
+- Register TMDB API & create an app & get acess token
+- Get Data from TMDB now playing movies List API
 
 
 # Features
