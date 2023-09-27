@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-# Netflix GPT 
+# Netflix GPT
 - Create React App
 - Configured Tailwind CSS
 - Header
@@ -90,6 +90,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Update Profile
 - Bugfix: Sign up user displayName and Profile picture update
 - BugFix: If the user is not logged in Redirect/ Browse to Login page and vice-versa. 
+- Unsubscribed to the onAuthStateChanged callback
+- Add hardcoded values to the constants file
 
 
 # Features

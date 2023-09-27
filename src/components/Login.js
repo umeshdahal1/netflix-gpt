@@ -11,6 +11,7 @@ import { auth } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import {USER_AVATAR} from "../utils/constants"
 
 const Login = () => {
   const [isSignInform, setIsSignInForm] = useState(true);
@@ -40,8 +41,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name?.current?.value,
-            photoURL:
-              "https://instagram.fktm7-1.fna.fbcdn.net/v/t51.2885-19/289711357_598641678145191_1903724461291630874_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fktm7-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=6G_X4DuWSWEAX8ZRGcN&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfDg0SY7NyZLtEy6DRac33DVmSSXFJZqZyuzfSXV6a5FeA&oe=650039A9&_nc_sid=8b3546",
+            photoURL: USER_AVATAR,  
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
